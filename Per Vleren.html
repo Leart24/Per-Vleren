@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Per ty 💜</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #2b0036, #3a0a5e, #1f0029);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Georgia", serif;
+        color: #f5e9ff;
+        text-align: center;
+        transition: background 1s ease;
+    }
+
+    .card {
+        background: rgba(0, 0, 0, 0.35);
+        padding: 45px;
+        border-radius: 22px;
+        max-width: 520px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        transition: opacity 0.8s ease;
+    }
+
+    button {
+        background: #f5e9ff;
+        color: #3a0a5e;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.1em;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+    }
+
+    #videoContainer {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: black;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #videoContainer h1 {
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    video {
+        width: 80%;
+        max-width: 800px;
+        border-radius: 20px;
+        box-shadow: 0 0 40px rgba(255,255,255,0.3);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+    <h1>Hey 💜</h1>
+    <p>
+        Munem me te than shum gjana, por po te them vetem kyt:
+        jeta asht ma e bukur kur te kam ty!
+        Will you be my VALENTINE?
+    </p>
+
+    <button onclick="yes()">Yes</button>
+    <button onclick="no()">No</button>
+</div>
+
+<div id="videoContainer">
+    <h1>💜 Yeeeeeeeeeeeeeeeeeeeeees 💜</h1>
+	<h2>Per ty kjo! Lule per lulen! <h2>
+    <video id="valentineVideo" controls>
+        <source src="Blooming lotus flower.mp4" type="video/mp4">
+    </video>
+</div>
+
+<script>
+function yes() {
+    // fade out card
+    const card = document.getElementById("card");
+    card.style.opacity = "0";
+
+    setTimeout(() => {
+        card.style.display = "none";
+
+        // change background
+        document.body.style.background = "black";
+
+        // show video container
+        const container = document.getElementById("videoContainer");
+        container.style.display = "flex";
+
+        // play music
+        document.getElementById("bgMusic").play();
+
+        // play video
+        document.getElementById("valentineVideo").play();
+
+    }, 800);
+}
+
+function no() {
+    alert("Gabim 😌");
+}
+</script>
+
+<audio id="bgMusic" loop>
+    <source src="yellow.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
