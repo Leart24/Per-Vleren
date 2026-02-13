@@ -37,12 +37,10 @@
         border-radius: 30px;
         cursor: pointer;
         margin: 10px;
-        transition: 0.2s;
+        transition: 0.3s ease;
     }
 
-    button:hover {
-        transform: scale(1.08);
-    }
+    /* Removed hover scale to avoid conflict */
 
     #videoContainer {
         display: none;
@@ -56,6 +54,11 @@
 
     #videoContainer h1 {
         color: white;
+        margin-bottom: 10px;
+    }
+
+    #videoContainer h2 {
+        color: #f5e9ff;
         margin-bottom: 20px;
     }
 
@@ -79,49 +82,43 @@
     </p>
 
     <button onclick="yes()">Yes</button>
-    <button onclick="no()">No</button>
+    <button id="noBtn" onclick="no()">No</button>
 </div>
 
 <div id="videoContainer">
     <h1>💜 Yeeeeeeeeeeeeeeeeeeeeees 💜</h1>
-	<h2>Per ty kjo! Lule per lulen! <h2>
+    <h2>Per ty kjo! Lule per lulen!</h2>
     <video id="valentineVideo" controls>
         <source src="Blooming lotus flower.mp4" type="video/mp4">
     </video>
 </div>
 
 <script>
+let scale = 1;
+
 function yes() {
-    // fade out card
     const card = document.getElementById("card");
     card.style.opacity = "0";
 
     setTimeout(() => {
         card.style.display = "none";
-
-        // change background
         document.body.style.background = "black";
 
-        // show video container
         const container = document.getElementById("videoContainer");
         container.style.display = "flex";
 
-        // play music
         document.getElementById("bgMusic").play();
-
-        // play video
         document.getElementById("valentineVideo").play();
-
     }, 800);
 }
 
 function no() {
     const noButton = document.getElementById("noBtn");
 
-    scale -= 0.15;   // shrink amount each click
+    scale -= 0.15;
 
     if (scale <= 0.2) {
-        noButton.style.display = "none";  // disappear completely
+        noButton.style.display = "none";
     } else {
         noButton.style.transform = "scale(" + scale + ")";
     }
@@ -133,5 +130,4 @@ function no() {
 </audio>
 
 </body>
-
 </html>
