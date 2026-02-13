@@ -116,7 +116,15 @@ function yes() {
 }
 
 function no() {
-    alert("Gabim 😌");
+    const noButton = document.getElementById("noBtn");
+
+    scale -= 0.15;   // shrink amount each click
+
+    if (scale <= 0.2) {
+        noButton.style.display = "none";  // disappear completely
+    } else {
+        noButton.style.transform = "scale(" + scale + ")";
+    }
 }
 </script>
 
@@ -125,4 +133,5 @@ function no() {
 </audio>
 
 </body>
+
 </html>
